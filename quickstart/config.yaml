@@ -1,0 +1,28 @@
+# config.yaml
+
+services:
+  azure_openai:
+    endpoint: "https://your-resource-name.openai.azure.com/"
+    api_key: "your-azure-openai-api-key"
+    deployment_name: "your-deployment-name"  # This is your model deployment name
+    api_version: "2023-05-15"  # Update to the API version you're using
+
+  chromadb:
+    persist_directory: "./chromadb_data"
+    collection_name: "embeddings"
+
+  neo4j:
+    uri: "bolt://localhost:7687"
+    username: "neo4j"
+    password: "your-neo4j-password"
+
+logging:
+  level: "INFO"
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  handlers:
+    - console
+    - file
+  file:
+    filename: "app.log"
+    max_bytes: 10485760  # 10MB
+    backup_count: 5
